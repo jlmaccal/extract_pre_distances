@@ -35,12 +35,7 @@ def load_data(excel, sheetname):
         'h',
         'i',
         'j']
-    # drop 'g' first, because it's all NaN
-    df = df.drop('g', axis=1)
-    # now drop anything left with NaN
-    df = df.dropna()
-    # now drop the columns we don't need
-    df = df.drop(['c', 'e', 'f', 'h', 'i', 'j'], axis=1)
+    df = df[['resid', 'diamagnetic', 'paramagnetic']]
     return df
 
 
@@ -126,7 +121,7 @@ def main():
 
     # Loop over the data sets and compare the distances predicted from the NMR data
     # to the distances from the PDB file.
-    ds_names = ['S17C', 'T34C', 'N42C', 'N53C', 'R86C', 'T110C', 'E127C', 'Q143C']
+    ds_names = ['S17C', 'T34C', 'N42C', 'N53C', 'R86C', 'T110C', 'T117C', 'E127C', 'Q143C']
     ond_resids = []
     for ds_name in ds_names:
         # figure out the name of our new columns
@@ -182,7 +177,7 @@ def main():
     df = df.dropna()
     source = ColumnDataSource(data=df)
     plots = []
-    for resid, mut_name in zip(ond_resids[:-1], ds_names):
+    for resid, mut_name in zip(ond_resids, ds_names):
         p = figure(plot_width=250, plot_height=250,
                 tools=TOOLS)
 

@@ -1,0 +1,26 @@
+# Restype   NMR Index   Meld Index    Simulated PDB Index
+ALA         1           0
+ASP         2           1
+GLN         3           2
+LEU         4           3
+THR         5           4             1
+...
+...
+THR         146         145           142
+ALA         147         146
+LYS         148         147
+CYS         149         148
+
+CA                      149           143
+CA                      150           144
+CA                      151           145
+CA                      152           146
+
+ALA         201         153           
+ARG         202         154           147
+ARG         203         155           148
+..
+..
+LEU         218         171           163
+SER         219         172           164
+SER         220         173           165
